@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Сайт на техническом обслуживании</title>
   <style>
     * {
@@ -14,24 +15,25 @@
       font-family: 'Segoe UI', sans-serif;
       color: white;
       text-align: center;
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;
+      overflow-x: hidden;
       background: linear-gradient(to top, #1e3c72, #2a5298);
       position: relative;
+      padding: 20px;
     }
 
     h1 {
-      margin-top: 80px;
-      font-size: 48px;
+      margin-top: 60px;
+      font-size: 36px;
     }
 
     p {
-      font-size: 20px;
+      font-size: 18px;
       margin-top: 10px;
     }
 
     .timer {
-      font-size: 32px;
+      font-size: 28px;
       margin-top: 30px;
     }
 
@@ -68,10 +70,11 @@
     }
 
     canvas {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       pointer-events: none;
+      z-index: 0;
     }
 
     .video-block {
@@ -80,9 +83,53 @@
       position: relative;
     }
 
-    iframe {
+    .video-block iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    a {
+      color: #fff;
+      text-decoration: underline;
+      display: block;
+      margin-top: 5px;
+      word-break: break-all;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      p, .timer {
+        font-size: 16px;
+      }
+
+      .video-block iframe {
+        height: 220px;
+      }
+
+      .cloud {
+        width: 200px;
+        height: 70px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      .timer {
+        font-size: 18px;
+      }
+
+      .video-block iframe {
+        height: 200px;
+      }
     }
   </style>
 </head>
@@ -95,14 +142,14 @@
 
   <!-- Контактная почта -->
   <p style="margin-top: 30px;">Если у вас есть вопросы, свяжитесь с нами:</p>
-  <a href="mailto:timaeusonuchin@yandex.ru" style="color: #fff; text-decoration: underline;">
+  <a href="mailto:timaeusonuchin@yandex.ru">
     timaeusonuchin@yandex.ru
   </a>
 
   <!-- Видео YouTube -->
   <div class="video-block">
     <p style="margin-top: 30px;">🎥 Пока вы ждёте, можете посмотреть видео:</p>
-    <iframe width="560" height="315"
+    <iframe
       src="https://www.youtube.com/embed/EkfJzz9f2a4"
       title="YouTube video player"
       frameborder="0"
